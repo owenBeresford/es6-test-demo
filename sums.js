@@ -52,6 +52,7 @@ if (!Math.sign) {
  * a fast but ugly hack is to use eval(), which would deliver same results but has security concerns
  
  * @access public
+ * @licence AGPL https://www.gnu.org/licenses/agpl-3.0.html
  * @author O Beresford owen@iceline.ltd.uk
  */
 class SumsService {
@@ -345,6 +346,7 @@ class SumsService {
  * a fast but ugly hack is to use eval(), which would deliver same results but has security concerns
  
  * @access public
+ * @licence AGPL https://www.gnu.org/licenses/agpl-3.0.html
  * @author O Beresford owen@iceline.ltd.uk
  */
 class SumNode
@@ -530,8 +532,29 @@ class SumNode
 
 
 const OP_TYPES=5;
+/**
+ * Comparators
+ * List of static stateless test functions
+ * 
+ * @access public
+ * @licence AGPL https://www.gnu.org/licenses/agpl-3.0.html
+ * @author O Beresford owen@iceline.ltd.uk
+ */
 class Comparators
 {
+    /**
+     * isOperator
+	 * isStructure
+	 * isNumber
+	 * isWhitespace
+	 * openOrClose  ~ brackets
+
+     * Static functions to detect types, designed to be put in 'if' branches
+	 * @param i ~ the char to test 
+     * @access public
+	 * @static
+     * @return bool
+     */
 	static isOperator(i) {
 		const ops="+-*/^e";
 		return ops.indexOf(i)!==-1;
@@ -557,22 +580,48 @@ class Comparators
   		return i==='(';
   	}
 
+
+    /**
+     * canHaveMoreLeaves
+     * Hopefully clearly named function, returns whether more leaves can be added
+	 * @param stack ~ the current node buffer 
+	 * @param pos ~ position in the stack
+	 * @param limit ~ OPTIONAL how many leaf nodes is desired
+     * @access public
+     * @return bool
+     */
 	static canHaveMoreLeaves(stack, pos, limit=2 ) {
 		return stack[pos].leaves.length < limit;
 	}
 
+    /**
+     * isBranchXthLeaf
+     * Hopefully clearly named function to report if a given child leaf is a leaf or a branch
+	 * @param stack ~ the current node buffer 
+	 * @param pos ~ position in the stack to start at
+	 * @param X ~ which child to look at
+      * @access public
+     * @return bool
+     */
 	static isBranchXthLeaf(stack, pos, X) {
 		return !Comparators.canHaveMoreLeaves(stack, pos, X+1 ) &&				
                stack[ stack[ pos ].leaves[X] ].isLeaf; 
 	}
 
+    /**
+     * assert, assertNot
+     * Two assert functions
+ 
+     * @access public
+     * @return void
+     */
   	static assert( func, text) {
   		if(!func) {
   			throw new Error("Assert failed "+text);
   		}
   	}
 
-  	static assertNot( func, text) {
+   	static assertNot( func, text) {
   		if(func) {
   			throw new Error("AssertNot failed "+text);
   		}
