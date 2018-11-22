@@ -1,0 +1,15 @@
+{
+	"private": true,
+	"name": "app",
+	"version": "0.0.2",
+	"author":"O Beresford, owen@iceline.ltd.uk",
+	"description": "A template test project, i.e. for test tools. No commercial use",
+	"licence":"AGPL",
+	"dependencies": {
+		"mocha":"5.2.0",
+		"chai":"4.2.0"
+		},
+	"scripts": {
+		"test": "mocha"
+	}
+}
