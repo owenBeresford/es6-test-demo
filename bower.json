@@ -1,0 +1,7 @@
+{
+	"name": "the-very-boring-sample",
+	"version": "0.0.2",
+	"description": "A template test project, i.e. for test tools. No commercial use",
+	"licence":"AGPL",
+	"homepage":"https://github.com/owenBeresford/es6-test-demo"
+}
