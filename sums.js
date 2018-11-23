@@ -629,5 +629,6 @@ class Comparators
 
 }
 
-module.exports={IcelineLtd:{ SumsService:SumsService}};
+if(typeof module ==='object') { module.exports={IcelineLtd:{ SumsService:SumsService}}; }
+
 
