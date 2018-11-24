@@ -225,12 +225,8 @@ describe('Can I use the SumsService module', function() {
 		Assert.equal(sums.compute("((3))"), 3, "Sum 18");
 		Assert.equal(sums.compute("1^1^1"), 1, "Sum 19");
 		Assert.equal(sums.compute("2^3*1^1^1"), 8, "Sum 20");
-		try {
-			sums.compute("(1)+(3+4)");
-		} catch(e) {
-// NB Chai doesn't have expected exception
-			console.log("Expected exception: "+e.message);			
-		}
+		
+		Assert.throws(function() { sums.compute("(1)+(3+4)"); }, Error);
 	});
 
 });
