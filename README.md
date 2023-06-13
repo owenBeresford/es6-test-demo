@@ -1,3 +1,5 @@
+UPDATE 2021: I have stopped using Mocha,. as it poorly integates with Modules or recent JS.
+
 # VERY BORING
 
 ### es6-test-demo
