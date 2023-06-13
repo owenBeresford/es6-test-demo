@@ -1,4 +1,4 @@
-UPDATE 2021: I have stopped using Mocha,. as it poorly integates with Modules or recent JS.
+UPDATE 2021: I have stopped using Mocha, as it poorly integates with modules or recent JS.
 
 # VERY BORING
 
